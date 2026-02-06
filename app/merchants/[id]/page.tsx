@@ -62,7 +62,8 @@ export default function POSBranchList({ params }: { params: Promise<{ id: string
                             <tr className="bg-slate-50/50 text-slate-500 border-b border-slate-200">
                                 <th className="px-6 py-5 text-[10px] font-bold uppercase tracking-wider">Location</th>
                                 <th className="px-6 py-5 text-[10px] font-bold uppercase tracking-wider">Address</th>
-                                <th className="px-6 py-5 text-[10px] font-bold uppercase tracking-wider">Account Information</th>
+                                <th className="px-6 py-5 text-[10px] font-bold uppercase tracking-wider">Account Name</th>
+                                <th className="px-6 py-5 text-[10px] font-bold uppercase tracking-wider">Account Number</th>
                                 <th className="px-6 py-5 text-[10px] font-bold uppercase tracking-wider text-center">QR Code</th>
                             </tr>
                         </thead>
@@ -72,7 +73,8 @@ export default function POSBranchList({ params }: { params: Promise<{ id: string
                                     <tr key={i} className="animate-pulse">
                                         <td className="px-6 py-8"><div className="h-4 w-32 bg-slate-100 rounded-full"></div></td>
                                         <td className="px-6 py-8"><div className="h-4 w-48 bg-slate-100 rounded-full"></div></td>
-                                        <td className="px-6 py-8"><div className="h-10 w-32 bg-slate-100 rounded-lg"></div></td>
+                                        <td className="px-6 py-8"><div className="h-4 w-32 bg-slate-100 rounded-full"></div></td>
+                                        <td className="px-6 py-8"><div className="h-4 w-24 bg-slate-100 rounded-full"></div></td>
                                         <td className="px-6 py-8 flex justify-center"><div className="w-16 h-16 bg-slate-100 rounded-xl"></div></td>
                                     </tr>
                                 ))
@@ -85,11 +87,11 @@ export default function POSBranchList({ params }: { params: Promise<{ id: string
                                         <td className="px-6 py-8 align-top">
                                             <div className="text-slate-500 text-sm max-w-[250px] leading-relaxed">{branch.address}</div>
                                         </td>
-                                        <td className="px-6 py-8 align-top">
-                                            <div className="space-y-1">
-                                                <div className="text-sm font-semibold text-slate-700">{branch.account_name}</div>
-                                                <div className="font-mono text-[10px] text-slate-400 font-bold tracking-widest uppercase">{branch.account_number}</div>
-                                            </div>
+                                        <td className="px-6 py-8 align-top font-medium text-slate-700">
+                                            {branch.account_name}
+                                        </td>
+                                        <td className="px-6 py-8 align-top font-mono text-[10px] text-slate-400 font-bold tracking-widest uppercase">
+                                            {branch.account_number}
                                         </td>
                                         <td className="px-6 py-8">
                                             <div className="flex flex-col items-center gap-4">
@@ -103,7 +105,7 @@ export default function POSBranchList({ params }: { params: Promise<{ id: string
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan={4} className="px-6 py-20 text-center text-slate-400 text-sm">
+                                    <td colSpan={5} className="px-6 py-20 text-center text-slate-400 text-sm">
                                         No active branches found.
                                     </td>
                                 </tr>

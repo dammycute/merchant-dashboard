@@ -41,7 +41,7 @@ export default function MerchantSelection() {
           <div className="space-y-6">
             <div className="space-y-2">
               <label htmlFor="merchant-select" className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.1em] pl-1">
-                Merchant
+                Select Merchant
               </label>
               <div className="relative group">
                 <select
